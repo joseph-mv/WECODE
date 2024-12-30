@@ -42,6 +42,7 @@
   background-size: cover;
   background-position: right;
   animation: smoothZoom 10s infinite alternate;
+  will-change: transform;
 }
 
 @keyframes smoothZoom {
