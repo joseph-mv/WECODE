@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'arial-black': ['"Arial Black"', 'Arial', 'sans-serif'],
         'trebuchet': ['"Trebuchet MS"', 'Helvetica', 'sans-serif'],
+        'lucida': ['"Lucida Sans Unicode"', 'sans-serif'],
       },
     },
   },
