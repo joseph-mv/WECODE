@@ -1,7 +1,7 @@
 
 const About = () => {
   return (
-    <div className="relative sm:min-h-[500px] overflow-hidden max-w-[1200px] mx-auto  p-8">
+    <div className="relative sm:min-h-[500px] overflow-hidden max-w-[1280px] mx-auto  p-8">
       <h1 >ABOUT US</h1>
       <div className="absolute top-0 right-0 text-gray-400 bg-gray-300 max-w-[30%] w-[200px] min-h-[500px]">.</div>
       <img
