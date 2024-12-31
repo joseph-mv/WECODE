@@ -3,7 +3,7 @@ export const Hero = () => {
     <section className="relative  bg-hero bg-blend-overlay antialiased flex flex-col justify-center pl-[calc(2*10%)] pr-[10%]">
       
       <div className="relative">
-        <h1 className="text-4xl md:text-5xl font-arial-black font-bold  mb-8">
+        <h1 className=" md:text-5xl font-arial-black font-bold  mb-8">
           {" "}
           Building a coding community
         </h1>
