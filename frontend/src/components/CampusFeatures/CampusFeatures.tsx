@@ -67,8 +67,8 @@ const FeatureSection = () => {
     ">WHAT WECODE BRINGS TO YOUR CAMPUS</h1>
     <img className="absolute right-0 bottom-0 h-28" src="/images/college.png" alt="" />
     
-  <div className=" overflow-hidden " ref={scrollRef}>
-      <div className="flex space-x-4 font-trebuchet"  > 
+ 
+      <div className="flex space-x-4 overflow-y-hidden overflow-x-auto scrollbar-hide font-trebuchet" ref={scrollRef} > 
         {features.map((feature, index) => (
            <div key={index} className="min-w-[200px] bg-white rounded-lg shadow-lg p-4 flex flex-col items-center">
            <feature.icon className="text-4xl text-blue-500 mb-2" />
@@ -80,7 +80,6 @@ const FeatureSection = () => {
       
     </div>
     
-  </div>
   );
 };
 
