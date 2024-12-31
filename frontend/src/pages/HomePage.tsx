@@ -8,7 +8,7 @@ export const HomePage = () => {
         <Header/>
         <Hero/>
         <About/>
-        sdjk
+        
       </div>
     )
   }
