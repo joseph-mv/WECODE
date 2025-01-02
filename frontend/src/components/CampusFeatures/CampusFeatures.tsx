@@ -42,7 +42,8 @@ const FeatureSection = () => {
       ];
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  //scroll x-direction while mouse scroll
+  useEffect(() => { 
     const scrollContainer = scrollRef.current;
 
     if (scrollContainer) {
