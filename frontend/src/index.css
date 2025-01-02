@@ -85,3 +85,11 @@ h1 {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
+.quarter-circle {
+  width: 50vw;
+  height:50vw;
+  max-width: 300px;
+  max-height: 300px;
+  clip-path: circle(70% at  70% 70%);
+  
+}
