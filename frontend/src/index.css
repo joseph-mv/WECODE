@@ -109,9 +109,26 @@ h1 {
     max-height: 350px;
     height: 350px;
     clip-path: circle(70% at  60% 60%);
+    p{
+      margin-left: 1px;
+    }
   }
-  p{
-    margin-left: 1px;
-  }
+ 
   
+}
+
+.halfCircle{
+  background-color:black;
+  width: 100px;
+  width: 100px;
+  height: 100px;
+  clip-path: circle(50% at  50% 100%);
+}
+.vertical-heading {
+  writing-mode: vertical-rl; /* Or vertical-lr for left-to-right */
+  text-orientation: upright;
+  @media(max-width:720px){
+    display: none;
+  }
+
 }

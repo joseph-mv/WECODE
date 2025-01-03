@@ -1,5 +1,6 @@
 import About from "../components/About/About";
 import AdvOfInstitution from "../components/AdvOfInstitution/AdvOfInstitution";
+import BenefitsForStudents from "../components/BenefitsForStudents/BenefitsForStudents";
 import BenefitsofTeam from "../components/BenefitsofTeam/BenefitsofTeam";
 import CampusFeatures from "../components/CampusFeatures/CampusFeatures";
 import Header from "../components/Header/Header";
@@ -18,6 +19,7 @@ export const HomePage = () => {
       <AdvOfInstitution />
       <Testimonials/>
       <BenefitsofTeam/>
+      <BenefitsForStudents/>
     </div>
   );
 };

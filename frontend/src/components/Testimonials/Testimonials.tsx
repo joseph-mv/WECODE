@@ -8,24 +8,24 @@ const Testimonials = () => {
     {
       name: "MR. AKSHAY",
       placement: "Got placed with a PACKAGE OF 8 LAKHS PER ANNUM",
-      description: " With a 125% increase in salary from his previous position",
+      description: " With a 125% increase in salary from his previous position.",
       img: "images/testimonials/akshay.png",
     },
     {
       name: "MR. AKHIN T",
       placement: "Got placed as a FULL STACK ENGINEER at Ooloi Labs",
-      description: "With a 33% increase in salary from previous position",
+      description: "With a 33% increase in salary from previous position.",
       img: "images/testimonials/akhin.png",
     },
     {
       name: "MR. VESHAL RAJ",
       placement: "Got placed in a Product Based company Samaaro",
-      description: "With great package as fresher",
+      description: "With great package as a fresher.",
       img: "images/testimonials/veshal_raj.png",
     },
   ];
   return (
-    <div className="max-w-7xl p-4 mx-auto font-trebuchet">
+    <div className="max-w-7xl p-4 mx-auto font-trebuchet outline-dashed -outline-offset-4">
       <h1 className="text-center">TESTIMONIALS</h1>
       <div className="flex flex-wrap gap-6 justify-center ">
         {testimonials.map((testimonial, index) => (
