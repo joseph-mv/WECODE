@@ -4,12 +4,16 @@ import {
   faPerson,
   faAnglesLeft,
   faAnglesRight,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 type Direction = "left" | "right";
 const AdvOfInstitution = () => {
   const icons = Array.from({ length: 8 });
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [tab, setTab] = useState<number>(1);
+  const [showStrategize,setShowStrategize]=useState(false)
+  const [showAchieve,setShowAchieve]=useState(false)
 
   //scroll x-direction while mouse scroll
   useEffect(() => {
@@ -31,17 +35,19 @@ const AdvOfInstitution = () => {
     }
   }, []);
 
-  const [tab, setTab] = useState<number>(1);
-  const handleTab = (direction: Direction) => {
+//left right actions at small screen
+  const handleTab = (direction: Direction) => { 
     if (direction === "left") setTab((prev) => prev - 1);
     else setTab((prev) => prev + 1);
   };
+
+
   return (
     <div className="max-w-7xl mx-auto mt-10   font-lucida">
-      <h1 className="text-center">ADVANTAGES FOR THE INSTITUTION</h1>
+      <h1 className="text-center mb-2">ADVANTAGES FOR THE INSTITUTION</h1>
       <div
         ref={scrollRef}
-        className="relative overflow-y-hidden overflow-x-auto flex h-[60vh] md:gap-14   scrollbar-hide "
+        className="relative overflow-y-hidden overflow-x-auto flex h-[500px] md:gap-14   scrollbar-hide "
       >
         {/* EXPOSURE TO TOP TECH COMPANIES section */}
         <div
@@ -149,7 +155,7 @@ const AdvOfInstitution = () => {
                 activities.
               </div>
               <div className="relative max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                DREAM
+                DREAM <button><FontAwesomeIcon onClick={()=>setShowStrategize(true)} className={`animate-bounce text-gray-600 ml-3 text-xl ${showStrategize && '-rotate-90 animate-none' }`} icon={faCaretDown}/></button>
                 <img
                   className="absolute left-[80%]  w-[50%] -rotate-[80deg] object-contain z-10"
                   src="/images/arrow_bend_left_down_icon.png"
@@ -158,29 +164,36 @@ const AdvOfInstitution = () => {
               </div>
             </div>
 
-            <div className="space-y-4 mt-28">
-              <div className="max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                Students will explore different paths to secure placements in
+            {   <div className="space-y-4 mt-28">
+            <div className=" max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
+              <p className={showStrategize?"visible":"invisible"}>
+              Students will explore different paths to secure placements in
                 leading tech firms with the guidance and mentorship provided by
                 WeCode Club.
+              </p>
+                
               </div>
               <div className="relative max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                STRATEGIZE
+                <span className={showStrategize?"visible":"invisible"}>
+                STRATEGIZE <button><FontAwesomeIcon onClick={()=>setShowAchieve(true)} className={`animate-bounce text-gray-600 ml-3 text-xl ${showAchieve && '-rotate-90 animate-none' }`} icon={faCaretDown}/></button>
                 <img
-                  className="absolute left-[110%] bottom-0  w-[50%]  -rotate-[150deg]  object-contain"
+                  className="absolute left-[100%] bottom-0  w-[50%]  -rotate-[150deg]  object-contain"
                   src="/images/arrow_bend_left_down_icon.png"
                   alt=""
                 />
+                </span>
+               
               </div>
-            </div>
+            </div>}
             <div className="space-y-4 mt-4">
               <div className="max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                Students collaborate with professors and the wecode community to
+              <p className={showAchieve?"visible":"invisible"}> Students collaborate with professors and the Wecode community to
                 work on extraordinary projects, enhancing their profiles and
-                skills to excel in interviews.
+                skills to excel in interviews.</p>
+               
               </div>
               <div className="max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                ACHIEVE
+               <span className={showAchieve?"visible":"invisible"} > ACHIEVE</span>
               </div>
             </div>
           </div>
