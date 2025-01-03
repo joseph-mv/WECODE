@@ -74,8 +74,10 @@ h1 {
 .shapeOutside{
  
   float: left;
-  shape-outside: circle(50%);
+  shape-outside: polygon(50%);
 }
+
+
 
 .scrollbar-hide {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -127,8 +129,14 @@ h1 {
 .vertical-heading {
   writing-mode: vertical-rl; /* Or vertical-lr for left-to-right */
   text-orientation: upright;
+  letter-spacing:-11px;
   @media(max-width:720px){
     display: none;
+  }
+  @supports (-moz-appearance: none) {
+    
+      letter-spacing: 1px; /* Custom letter-spacing for Firefox */
+    
   }
 
 }
