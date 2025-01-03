@@ -221,7 +221,6 @@ const AdvOfInstitution = () => {
           />
         </button>
       </div>
-      sdvds
     </div>
   );
 };
