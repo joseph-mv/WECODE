@@ -47,7 +47,6 @@ Ensure you have the following installed on your local machine:
 2. **Install frontend dependencies:**
 
    ```bash
-   cd frontend
    npm install
     ```
 
