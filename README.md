@@ -85,6 +85,7 @@ This command generates an optimised production build in the dist folder. The bui
 2.Click on "Add new site" and select "Import from Git."
 
 3.Connect your GitHub repository and choose the branch to deploy.
+
 4.Configure the build settings if needed (` npm run build ` for the build command and `dist` as the publish directory).
 
 5.Click "Deploy Site." Netlify will build and deploy your application, providing you with a live URL.
