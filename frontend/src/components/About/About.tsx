@@ -33,7 +33,7 @@ const About = () => {
     <div>
       <div className="relative sm:min-h-[500px]  overflow-hidden max-w-[1280px] mx-auto  p-8">
         <h1>ABOUT US</h1>
-        <div className="absolute top-0 right-0 text-gray-400 bg-gray-300 max-w-[30%] w-[200px] min-h-[500px]">
+        <div  className="absolute top-0 right-0 text-gray-400 bg-gray-300 max-w-[30%] w-[200px] min-h-[500px]">
           .
         </div>
         <img
@@ -41,7 +41,7 @@ const About = () => {
           src="/images/about.webp"
           alt=""
         />
-        <div className="sm:absolute  relative mt-4 mx-auto sm:right-52 sm:top-24  sm:w-[70%] max-w-[700px] p-4  bg-gray-100 min-h-max shadow-md text-justify">
+        <div data-aos="fade-right" className="sm:absolute  relative mt-4 mx-auto sm:right-52 sm:top-24  sm:w-[70%] max-w-[700px] p-4  bg-gray-100 min-h-max shadow-md text-justify">
           <img
             className="w-20 object-contain mr-4 shapeOutside"
             src="/images/checklist.png"
@@ -54,7 +54,7 @@ const About = () => {
             the Middle East, and Europe and is growing exponentially.
           </p>
         </div>
-        <div className="sm:absolute  relative mt-4 mx-auto sm:right-52 sm:top-80  sm:w-[70%] max-w-[700px] p-4 bg-gray-100 min-h-max shadow-md text-justify">
+        <div data-aos="fade-right" className="sm:absolute  relative mt-4 mx-auto sm:right-52 sm:top-80  sm:w-[70%] max-w-[700px] p-4 bg-gray-100 min-h-max shadow-md text-justify">
           <img
             className="w-20 object-contain mr-4 shapeOutside"
             src="/images/user.png"

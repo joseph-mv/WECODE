@@ -45,29 +45,34 @@ const BenefitsForStudents = () => {
     <div className="max-w-7xl mx-auto ">
       <h1 className="text-center">BENEFITS FOR THE STUDENTS</h1>
       <div className="flex md:px-28 gap-4">
-      <h2 className="text-lg font-lucida  vertical-heading">THERE ARE TONS OF BENEFITS WAITING FOR YOU ! </h2>
-      <div className=" flex flex-wrap gap-10 justify-center ">
-        {benefits.map((benefit, index) => (
-          <div 
-            key={index}
-            className="relative flex flex-col shadow-sm justify-center items-center  text-white"
-          >
-            <div className="halfCircle"></div>
-            <img
-              className="absolute top-14  w-20 object-contain"
-              src={benefit.icon}
-              alt=""
-            />
+        <h2 className="text-lg font-lucida  vertical-heading">
+          THERE ARE TONS OF BENEFITS WAITING FOR YOU !{" "}
+        </h2>
+        <div className=" flex flex-wrap gap-10 justify-center ">
+          {benefits.map((benefit, index) => (
+            <div data-aos="zoom-in"
+              key={index}
+              className="relative flex flex-col shadow-sm justify-center items-center  text-white"
+            >
+              <div className="halfCircle"></div>
+              <img
+                className="absolute top-14  w-20 object-contain"
+                src={benefit.icon}
+                alt=""
+              />
 
-            <div className="bg-black h-64 w-60 text-center rounded">
-              <p className="font-lucida mt-12 text-sm">{benefit.description}</p>
-              <h2 className="font-trebuchet font-extrabold text-xl mt-6">{benefit.name}</h2>
+              <div className="bg-black h-64 w-60 text-center rounded">
+                <p className="font-lucida mt-12 text-sm">
+                  {benefit.description}
+                </p>
+                <h2 className="font-trebuchet font-extrabold text-xl mt-6">
+                  {benefit.name}
+                </h2>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      </div>
-        
     </div>
   );
 };

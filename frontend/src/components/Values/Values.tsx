@@ -20,7 +20,7 @@ const Values = () => {
           <p className="bg-black text-white text-center text-xl font-bold max-w-[232px] md:max-w-[266px] mx-auto">Vision</p>
          
         </div>
-        <div className=" p-4 col-span-2 row-span-3 border-4 border-black  ">
+        <div  className=" p-4 col-span-2 row-span-3 border-4 border-black  overflow-hidden">
           <p className="font-lucida text-justify">
             Our commitment lies in creating a vibrant community centered around
             Computer Science and Engineering Students. Our vision is to equip
