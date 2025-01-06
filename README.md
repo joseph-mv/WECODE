@@ -52,8 +52,6 @@ Ensure you have the following installed on your local machine:
 
 ### Running the application
 
-
-
 1.**Start the frontend server :**
 - Open a new terminal, navigate to the frontend directory, and run
 
@@ -69,16 +67,29 @@ This command starts a local development server. By default, it runs on http://lo
 
 ```
 This command generates an optimised production build in the dist folder. The build is minified and includes all necessary assets for deployment.
-   ### Contributing:
 
-Contributions are welcome! Please follow these guidelines:
+## Deployment
+### Steps to deploy on Vercel:
+1.Sign in to your Vercel account or create a new account at Vercel.
 
-1. **Fork the repository.**
-2. **Create a new branch:** `git checkout -b feature/your-feature`
-3. **Make your changes.**
-4. **Commit your changes:** `git commit -m 'Add new feature'`
-5. **Push to your branch:** `git push origin feature/your-feature`
-6. **Create a pull request.**
+2.Click on "New Project" and import your GitHub repository.
+
+3.Configure the project settings if needed, and click "Deploy."
+
+4.Vercel will automatically build and deploy your application. Once completed, you will receive a live URL to access your deployed site.
+
+### Steps to deploy on Netlify:
+
+1.Sign in to your Netlify account or create a new account at Netlify.
+
+2.Click on "Add new site" and select "Import from Git."
+
+3.Connect your GitHub repository and choose the branch to deploy.
+4.Configure the build settings if needed (` npm run build ` for the build command and `dist` as the publish directory).
+
+5.Click "Deploy Site." Netlify will build and deploy your application, providing you with a live URL.
+
+
 
 **License:**
 
