@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from "react";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const App = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ export const App = () => {
 
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
