@@ -95,7 +95,7 @@ const BenefitsofTeam = () => {
 
             <img
               className="hidden sm:block right-0 w-[30%]"
-              src="/images/strongProfile.jpg"
+              src="/images/strongProfile.webp"
               alt=""
             />
           </div>
