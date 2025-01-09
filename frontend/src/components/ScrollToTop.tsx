@@ -1,5 +1,4 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { faArrowAltCircleUp } from "@fortawesome/free-solid-svg-icons/faArrowAltCircleUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
 
