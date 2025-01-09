@@ -52,7 +52,7 @@ const BenefitsForStudents = () => {
           {benefits.map((benefit, index) => (
             <div data-aos="zoom-in"
               key={index}
-              className="relative flex flex-col shadow-sm justify-center items-center  text-white"
+              className="relative flex flex-col shadow-sm justify-center items-center  text-white p-2"
             >
               <div className="halfCircle"></div>
               <img
