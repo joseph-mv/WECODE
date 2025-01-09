@@ -199,7 +199,7 @@ const AdvOfInstitution = () => {
           </div>
         </div>
         <button
-          className={`absolute md:hidden left-2 top-[70%] ${
+          className={`absolute md:hidden left-[5vw] top-[90%] ${
             tab === 1 && "hidden"
           }`}
           onClick={() => handleTab("left")}
@@ -210,7 +210,7 @@ const AdvOfInstitution = () => {
           />
         </button>
         <button
-          className={`absolute right-2 top-[70%] md:hidden ${
+          className={`absolute right-[5vw] top-[90%] md:hidden ${
             tab === 3 && "hidden"
           }`}
           onClick={() => handleTab("right")}
