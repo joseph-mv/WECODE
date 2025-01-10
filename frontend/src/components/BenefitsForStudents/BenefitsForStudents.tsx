@@ -50,7 +50,7 @@ const BenefitsForStudents = () => {
         </h2>
         <div className=" flex flex-wrap gap-10 justify-center ">
           {benefits.map((benefit, index) => (
-            <div data-aos="zoom-in"
+            <div data-aos="zoom-in "
               key={index}
               className="relative flex flex-col shadow-sm justify-center items-center  text-white p-2"
             >
@@ -65,7 +65,7 @@ const BenefitsForStudents = () => {
                 <p className="font-lucida mt-12 text-sm">
                   {benefit.description}
                 </p>
-                <h2 className="font-trebuchet font-extrabold text-xl mt-6">
+                <h2 className="font-trebuchet font-extrabold text-xl my-2 mt-6">
                   {benefit.name}
                 </h2>
               </div>
