@@ -14,7 +14,7 @@ export default {
       keyframes: {
         zoomInOut: {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' }, // Start and end at normal scale
-          '50%': { transform: 'scale(1.2)', opacity: '1' },   // Scale up at 50%
+          '50%': { transform: 'scale(1.1)', opacity: '1' },   // Scale up at 50%
         },
         slideLeft: {
           '0%': { transform: 'translateX(100%)', opacity: 0 },
