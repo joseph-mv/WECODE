@@ -3,41 +3,22 @@ import {
   faArrowsToDot,
   faAnglesLeft,
   faAnglesRight,
-  faCaretDown,
+
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 type Direction = "left" | "right";
 const BenefitsofTeam = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<number>(1);
-  const [showOwnership, setShowOwnership] = useState(false);
-  const [showBest, setShowBest] = useState(false);
+ const [direction, setDirection] = useState<Direction>("left")
 
-  //scroll x-direction while mouse scroll
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
 
-    if (scrollContainer) {
-      const handleWheel = (e: WheelEvent) => {
-        if (e.deltaY !== 0) {
-          e.preventDefault();
-          scrollContainer.scrollLeft += 3 * e.deltaY;
-        }
-      };
-
-      scrollContainer.addEventListener("wheel", handleWheel);
-
-      return () => {
-        scrollContainer.removeEventListener("wheel", handleWheel);
-      };
-    }
-  }, []);
-
-  //left right actions at small screen
-  const handleTab = (direction: Direction) => {
-    if (direction === "left") setTab((prev) => prev - 1);
-    else setTab((prev) => prev + 1);
-  };
+//left, right button actions 
+const handleTab = (direction: Direction) => { 
+  setDirection(direction)
+  if (direction === "left") setTab((prev) =>prev===1?prev=3: prev - 1);
+  else setTab((prev) =>prev%3 + 1);
+};
 
   return (
     <div className="max-w-7xl mx-auto mt-10   font-lucida">
@@ -46,13 +27,16 @@ const BenefitsofTeam = () => {
       </h1>
       <div
         ref={scrollRef}
-        className="relative overflow-y-hidden overflow-x-auto flex h-[500px] md:gap-14   scrollbar-hide "
+        className="relative  flex h-[500px] md:gap-14  "
       >
         {/*  A STRONG AND OUTSTANDING PROFILE section */}
         <div
-          className={`relative m-auto sm:min-w-[700px] min-w-[100vw] h-[400px] overflow-hidden ${
+          className={`relative m-auto sm:max-w-[700px] sm:min-w-[700px] min-w-[100vw] h-[400px] overflow-hidden ${
             tab !== 1 && "hidden"
-          } md:block`}
+          }
+           ${direction==="left" && "animate-left2right" } 
+          ${direction==="right" && "animate-right2left" } 
+          block`}
         >
           <h2 className="text-center text-xl mb-14 font-trebuchet underline">
             A STRONG AND OUTSTANDING PROFILE
@@ -102,9 +86,11 @@ const BenefitsofTeam = () => {
         </div>
         {/* EXCLUSIVE INVITATIONS section */}
         <div
-          className={`relative overflow-hidden m-auto sm:min-w-[700px] min-w-[100vw]  h-[400px] bg-black text-white p-2 ${
+          className={`relative overflow-hidden m-auto sm:max-w-[700px] sm:min-w-[700px] min-w-[100vw]  h-[400px] bg-black text-white p-2 ${
             tab !== 2 && "hidden"
-          } md:block`}
+          }
+           ${direction==="left" && "animate-left2right" } 
+          ${direction==="right" && "animate-right2left" }  block`}
         >
           <h2 className=" text-xl mb-8 font-trebuchet underline">
             EXCLUSIVE INVITATIONS
@@ -131,7 +117,9 @@ const BenefitsofTeam = () => {
         <div
           className={`m-auto sm:min-w-[700px] min-w-[100vw]  h-[400px]  ${
             tab !== 3 && "hidden"
-          }  md:block`}
+          } 
+           ${direction==="left" && "animate-left2right" } 
+          ${direction==="right" && "animate-right2left" }  block`}
         >
           <h2 className=" text-xl font-trebuchet underline ml-2">
             EARLY EXPERIENCE OF BEING IN AN ORGANIZATION
@@ -144,15 +132,7 @@ const BenefitsofTeam = () => {
               </div>
               <div className="relative max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
                 FIRST EXPERIENCE{" "}
-                <button>
-                  <FontAwesomeIcon
-                    onClick={() => setShowOwnership(true)}
-                    className={`animate-bounce text-gray-600 ml-3 text-xl ${
-                      showOwnership && "-rotate-90 animate-none"
-                    }`}
-                    icon={faCaretDown}
-                  />
-                </button>
+               
                 <img
                   className="absolute left-[80%]  w-[50%] -rotate-[80deg] object-contain z-10"
                   src="/images/arrow_bend_left_down_icon.png"
@@ -164,22 +144,14 @@ const BenefitsofTeam = () => {
             {
               <div className="space-y-4 mt-48">
                 <div className=" max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                  <p className={showOwnership ? "visible" : "invisible"}>
+                  <p>
                     Chance to lead and mentor the next generation of leaders.
                   </p>
                 </div>
                 <div className="relative max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                  <span className={showOwnership ? "visible" : "invisible"}>
+                  <span >
                     OWNERSHIP{" "}
-                    <button>
-                      <FontAwesomeIcon
-                        onClick={() => setShowBest(true)}
-                        className={`animate-bounce text-gray-600 ml-3 text-xl ${
-                          showBest && "-rotate-90 animate-none"
-                        }`}
-                        icon={faCaretDown}
-                      />
-                    </button>
+                   
                     <img
                       className="absolute left-[100%] bottom-0  w-[50%]  -rotate-[150deg]  object-contain"
                       src="/images/arrow_bend_left_down_icon.png"
@@ -191,7 +163,7 @@ const BenefitsofTeam = () => {
             }
             <div className="space-y-4 mt-4">
               <div className="max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                <p className={showBest ? "visible" : "invisible"}>
+                <p >
                   {" "}
                   You will acquire the necessary methods and strategies to
                   excel, setting you up for success in your professional journey
@@ -199,7 +171,7 @@ const BenefitsofTeam = () => {
                 </p>
               </div>
               <div className="max-w-44 w-[30vw] text-center bg-white rounded-md shadow-xl p-2">
-                <span className={showBest ? "visible" : "invisible"}>
+                <span >
                   {" "}
                   BEING THE BEST
                 </span>
@@ -208,9 +180,7 @@ const BenefitsofTeam = () => {
           </div>
         </div>
         <button
-          className={`absolute md:hidden left-[5vw] top-[90%] ${
-            tab === 1 && "hidden"
-          }`}
+          className={`absolute  left-[5vw] top-[90%] md:top-[50%]`}
           onClick={() => handleTab("left")}
         >
           <FontAwesomeIcon
@@ -218,10 +188,9 @@ const BenefitsofTeam = () => {
             icon={faAnglesLeft}
           />
         </button>
+        
         <button
-          className={`absolute right-[5vw] top-[90%] md:hidden ${
-            tab === 3 && "hidden"
-          }`}
+          className={`absolute right-[5vw] top-[90%] md:top-[50%] `}
           onClick={() => handleTab("right")}
         >
           <FontAwesomeIcon
