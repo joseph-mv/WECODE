@@ -7,7 +7,7 @@ import Values from "../components/Values/Values";
 const CampusFeatures = React.lazy(() => import("../components/CampusFeatures/CampusFeatures"));
 const AdvOfInstitution = React.lazy(() => import("../components/AdvOfInstitution/AdvOfInstitution"));
 const Testimonials = React.lazy(() => import("../components/Testimonials/Testimonials"));
-const BenefitsofTeam = React.lazy(() => import("../components/BenefitsofTeam/BenefitsofTeam"));
+const BenefitsOfTeam = React.lazy(() => import("../components/BenefitsofTeam/BenefitsofTeam"));
 const BenefitsForStudents = React.lazy(() => import("../components/BenefitsForStudents/BenefitsForStudents"));
 const Founder = React.lazy(() => import("../components/Founder/Founder"));
 const Footer = React.lazy(() => import("../components/Footer/Footer"));
@@ -23,7 +23,7 @@ export const HomePage = () => {
       <CampusFeatures />
       <AdvOfInstitution />
       <Testimonials />
-      <BenefitsofTeam />
+      <BenefitsOfTeam />
       <BenefitsForStudents />
       <Founder />
       <Footer />
