@@ -18,6 +18,7 @@ export const HomePage = () => {
       <Header />
       <Hero />
       <About />
+
       <Values />
       <Suspense fallback={<div>Loading...</div>}>
       <CampusFeatures />
