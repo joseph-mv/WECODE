@@ -1,2 +1,2 @@
 # wecode-web
-This is the main websote of WeCode Community
+This is the main website of WeCode Community
