@@ -9,10 +9,7 @@ import logger from './utils/logger';
 import helmet from 'helmet';
 import session from "express-session";
 import passport from './config/passportConfig'
-import { googleAuthenticated } from './middleware/isAuthenticated';
-import router from './routes/authRotes';
-
-
+import userRouter from './routes/userRouter';
 
 // Load environment variables
 dotenv.config();
@@ -29,17 +26,29 @@ app.use(
     secret: "WeCode", // Use a strong secret for production
     resave: false,
     saveUninitialized: true,
+    cookie: { secure: false },// Set to true if using HTTPS
+    
   })
 );
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Your React frontend URL
+    credentials: true, // Allow cookies to be sent
+  })
+);
 // Use Helmet for security
 app.use(helmet());
 app.use(logger);
+
+
 
 // Initiate Google Authentication
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -49,15 +58,13 @@ app.get(
   passport.authenticate('google', { failureRedirect: '/' }),
   (req: Request, res: Response) => {
     // Redirect user after successful login
-    res.redirect(process.env.CLIENT_URL+'/dashboard');
+    res.redirect(process.env.CLIENT_URL+`/dashboard?user=${JSON.stringify(req.user)}`);
   }
 );
 
+app.use('/user',userRouter );
 
-// Protected Route
-app.get('/dashboard', googleAuthenticated, (req: Request, res: Response) => {
-  res.send('<h1>Dashboard</h1><p>Welcome to your dashboard!</p>');
-});
+
 
 // Error Handler Middleware
 app.use(errorHandler);

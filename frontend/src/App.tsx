@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from "react";
 import ScrollToTop from "./components/ScrollToTop";
+import Dashboard from "./components/DashBoard/DashBoard";
 
 export const App = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ export const App = () => {
     <ScrollToTop/>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </BrowserRouter>
   );

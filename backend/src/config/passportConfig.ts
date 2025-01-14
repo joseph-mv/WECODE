@@ -1,6 +1,7 @@
 import passport from 'passport';
 import { Profile, Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import dotenv from 'dotenv';
+import userModel from '../models/userModel';
 
 dotenv.config(); // Load environment variables
 
@@ -28,11 +29,25 @@ passport.use(
       done: (error: any, user?: any) => void
     ) => {
       try {
-        // Simulate saving user to the database
-        console.log('User profile:', profile);
-        done(null, profile);
-      } catch (err) {
-        done(err, null);
+        // Check if the user exists in the database
+        const existingUser = await userModel.findOne({ googleId: profile.id });
+        if (existingUser) {
+          // If the user exists, return it
+          return done(null, existingUser);
+        }
+
+        // If the user does not exist, create a new one
+        const newUser = new userModel({
+          googleId: profile.id,
+          name: profile.displayName,
+          email: profile.emails?.[0].value, // Use the first email from the profile
+          avatar: profile.photos?.[0].value, // Use the first photo from the profile
+        });
+        const savedUser = await newUser.save();
+
+        return done(null, savedUser);
+      } catch (error) {
+        return done(error, null);
       }
     }
   )
