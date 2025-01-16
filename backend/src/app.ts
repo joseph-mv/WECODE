@@ -47,10 +47,6 @@ app.use(
 app.use(helmet());
 app.use(logger);
 
-
-
-
-
 // Initiate Google Authentication
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
@@ -64,8 +60,6 @@ app.get(
 );
 
 app.use('/user',userRouter );
-
-
 
 // Error Handler Middleware
 app.use(errorHandler);

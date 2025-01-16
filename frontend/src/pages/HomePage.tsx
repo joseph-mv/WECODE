@@ -13,7 +13,7 @@ const BenefitsForStudents = React.lazy(() => import("../components/BenefitsForSt
 const Founder = React.lazy(() => import("../components/Founder/Founder"));
 const Footer = React.lazy(() => import("../components/Footer/Footer"));
 
-export const HomePage = () => {
+ const HomePage = () => {
   return (
     <div>
       <Header />
@@ -33,3 +33,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;
