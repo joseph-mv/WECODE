@@ -6,11 +6,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { AuthGoogle } from "../AuthGoogle/AuthGoogle";
+import {  useDispatch } from "react-redux";
+import { openAuthModal } from "../../redux/reducers/uiReducer";
+
 
 export const Hero = () => {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const dispatch=useDispatch()
   return (
     <section className="relative  bg-hero bg-blend-overlay antialiased flex flex-col justify-center pl-[calc(2*10%)] pr-[10%]">
       {/* Social Links */}
@@ -27,14 +28,12 @@ export const Hero = () => {
         </h3>
 
         <button
-          onClick={() => setIsAuthModalOpen(true)}
+          onClick={() => dispatch(openAuthModal())}
           className=" bg-primary font-semibold w-max left- text-black gap-3 p-4   rounded-md bg-violet-400 transition-transform transform hover:scale-105 flex items-center sm:ml-[calc(2*30%)] ml-[20%]"
         >
           <FontAwesomeIcon icon={faUsers} className="animate-zoomInOut " />
           Join Our Community
         </button>
-
-      <AuthGoogle isOpen={isAuthModalOpen} onClose={()=>setIsAuthModalOpen(false)} />
 
       </div>
       <div className="absolute bottom-10 left-[50%] -translate-x-[50%] mx-auto   space-x-[10vw] mt-4  flex   ">

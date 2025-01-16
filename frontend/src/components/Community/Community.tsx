@@ -15,9 +15,12 @@ import {
 import { Message, Topic } from "./type";
 import { axiosInstance } from "../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import { openAuthModal } from "../../redux/reducers/uiReducer";
 
 function Community() {
 const navigate=useNavigate()
+const dispatch=useDispatch()
 
   const initialTopics: Topic[] = [
     {
@@ -67,7 +70,11 @@ const navigate=useNavigate()
 
   const [activeTopic, setActiveTopic] = useState(topics[0].id);
   useEffect(()=>{
-    axiosInstance.get('/user/community', { withCredentials: true }).then((response)=>console.log(response)).catch(()=>navigate('/')
+    axiosInstance.get('/user/community', { withCredentials: true }).then((response)=>console.log(response)).catch(()=>{
+      navigate('/')
+      dispatch(openAuthModal())
+    
+    }
   )
   },[])
 
