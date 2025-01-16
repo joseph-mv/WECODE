@@ -5,7 +5,6 @@ import cors from 'cors';
 import connectDB from './config/db';
 import { errorHandler } from './middleware/errorHandler';
 import logger from './utils/logger';
-// import router from './routes/userRoutes';
 import helmet from 'helmet';
 import session from "express-session";
 import passport from './config/passportConfig'
@@ -40,13 +39,15 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Your React frontend URL
+    origin: process.env.CLIENT_URL, // Your React frontend URL
     credentials: true, // Allow cookies to be sent
   })
 );
 // Use Helmet for security
 app.use(helmet());
 app.use(logger);
+
+
 
 
 

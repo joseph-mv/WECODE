@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../api/axiosInstance";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -8,10 +8,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Fetch user data from the backend
-    axios
-      .get("http://localhost:3000/user/dashboard", { withCredentials: true })
+    axiosInstance
+      .get("/user/dashboard", { withCredentials: true })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setUser(response.data.name);
       })
       .catch((error) => {
@@ -21,8 +21,8 @@ const Dashboard = () => {
   }, [navigate]);
 
   const handleLogout = () => {
-    axios
-      .get("http://localhost:3000/user/logout", { withCredentials: true })
+    axiosInstance
+      .get("/user/logout", { withCredentials: true })
       .then(() => {
         navigate("/"); // Redirect to login after logout
       })
