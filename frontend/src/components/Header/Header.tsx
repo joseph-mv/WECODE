@@ -3,6 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// interface User {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   membershipType: string;
+// }
+
 const Header = () => {
   // State to track whether the hamburger menu is open or closed
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,6 +26,19 @@ const Header = () => {
       document.body.classList.remove("fixed", "w-full");
     }
   }, [isOpen]);
+
+
+   // const [user, setUser] = useState<User | null>(null);
+
+  // useEffect(() => {
+  //   // Get user data from URL query (or you can get from a state management tool like Redux)
+  //   const queryParams = new URLSearchParams(window.location.search);
+  //   const userData = queryParams.get('user');
+  //   if (userData) {
+  //     setUser(JSON.parse(userData));
+  //   }
+  // }, []);
+  // console.log(user)
   return (
     <header className=" flex p-3 h-20  justify-between items-center ">
       <div className="rounded-full outline  outline-1">

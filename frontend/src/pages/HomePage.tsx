@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import { Hero } from "../components/Hero/Hero";
 import About from "../components/About/About";
 import Values from "../components/Values/Values";
+
 // Lazy load components
 const CampusFeatures = React.lazy(() => import("../components/CampusFeatures/CampusFeatures"));
 const AdvOfInstitution = React.lazy(() => import("../components/AdvOfInstitution/AdvOfInstitution"));
@@ -18,6 +19,7 @@ export const HomePage = () => {
       <Header />
       <Hero />
       <About />
+
       <Values />
       <Suspense fallback={<div>Loading...</div>}>
       <CampusFeatures />
