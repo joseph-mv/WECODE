@@ -108,7 +108,6 @@ This command generates an optimised production build in the dist folder. The bui
 
 
  ```bash
- cd backend
    npm run dev
 
 ```
