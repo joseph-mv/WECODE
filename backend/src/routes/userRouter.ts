@@ -13,5 +13,9 @@ router.get('/logout', (req, res) => {
     res.json()
   });
 });
+router.get('/community',googleAuthenticated,(req: Request, res: Response) => {
+  console.log(req.user)
+  res.send(req.user);
+})
 
 export default router

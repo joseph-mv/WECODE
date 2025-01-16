@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import  HomePage  from "./pages/HomePage";
 import DashBoardPage from "./pages/DashBoardPage";
+import CommunityPage from "./pages/CommunityPage";
 
 export const App = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<DashBoardPage/>} />
+        <Route path="/community" element={<CommunityPage/>} />
       </Routes>
     </BrowserRouter>
   );

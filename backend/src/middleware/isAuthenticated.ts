@@ -7,7 +7,9 @@ export const googleAuthenticated = (
   ): void => {
 console.log(req.user)
     if (req.isAuthenticated()) {
+      console.log('googleAuthenticated')
       return next();
     }
+    console.log('not googleAuthenticated')
     res.redirect('/');
   };
