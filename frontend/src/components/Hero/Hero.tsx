@@ -13,7 +13,7 @@ import { openAuthModal } from "../../redux/reducers/uiReducer";
 export const Hero = () => {
   const dispatch=useDispatch()
   return (
-    <section className="relative  bg-hero bg-blend-overlay antialiased flex flex-col justify-center pl-[calc(2*10%)] pr-[10%]">
+    <section className=" relative  bg-hero bg-blend-overlay antialiased flex flex-col justify-center pl-[calc(2*10%)] pr-[10%] ">
       {/* Social Links */}
 
       <div className="relative ">

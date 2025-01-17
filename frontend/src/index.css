@@ -13,19 +13,20 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ 
 }
+
 h1 {
   @apply text-4xl font-trebuchet mb-10;
 }
 .bg-hero{
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 550px;
   overflow: hidden;
 }
-.bg-hero::before {
+/* animation only for background image */
+.bg-hero::before {  
   content: "";
   position: absolute;
   top: 0;

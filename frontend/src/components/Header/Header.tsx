@@ -40,7 +40,7 @@ const Header = () => {
   // }, []);
   // console.log(user)
   return (
-    <header className=" flex p-3 h-20  justify-between items-center ">
+    <header className=" flex p-3 h-20   justify-between items-center">
       <div className="rounded-full outline  outline-1">
         <img
           style={{ width: "50px", height: "auto" }}
