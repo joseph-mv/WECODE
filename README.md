@@ -45,6 +45,28 @@ Ensure you have the following installed on your local machine:
 
 - Node.js
 - npm (Node Package Manager)
+- A Google Developer account.
+
+### Steps to Set Up Google OAuth Authentication
+
+1. Go to the [Google Developer Console](https://console.developers.google.com/).
+2. Select your project (or create a new one).
+3. Navigate to **APIs & Services** > **Credentials**.  
+4. Configure the OAuth Consent Screen:
+   - In the left sidebar, navigate to APIs & Services > OAuth consent screen.
+   - Choose User Type:
+External →  your app will be used by users outside your organization (public app).
+   - Fill in the Consent Screen Details.
+   - On the Scopes screen, click Add or Remove Scopes.
+Choose the required scopes (.../auth/userinfo.email,.../auth/userinfo.profile,openid).
+5. Click on **Create Credentials** and select **OAuth Client ID**.
+   - Choose Application Type: Web Application (for web apps).
+   - Enter a name (e.g., "Wecode").
+   - Under Authorized redirect URIs, add:
+   `http://localhost:3000/auth/google/callback
+   ` 
+   - Click create.
+   - After creation, you'll see your Client ID and Client Secret. Copy and store them securely.
 
 ### Installation
 
