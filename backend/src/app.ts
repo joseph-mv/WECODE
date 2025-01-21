@@ -9,7 +9,7 @@ import helmet from 'helmet';
 import session from "express-session";
 import passport from './config/passportConfig'
 import userRouter from './routes/userRouter';
-
+import adminRouter from './routes/adminRouter'
 // Load environment variables
 dotenv.config();
 
@@ -48,7 +48,8 @@ app.use(cors());
 // );
 
 const allowedOrigins = [
-  process.env.CLIENT_URL
+  process.env.CLIENT_URL,
+  process.env.ADMIN_URL
 ];
 
 app.use(cors({
@@ -88,6 +89,7 @@ app.get(
 );
 
 app.use('/user',userRouter );
+app.use('/admin',adminRouter);
 
 // Error Handler Middleware
 app.use(errorHandler);

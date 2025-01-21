@@ -1,0 +1,9 @@
+import express, { Request, Response } from 'express';
+import { adminLogin } from '../controllers/adminController';
+
+
+const router=express.Router();
+
+router.post('/login',adminLogin)
+
+export default router
