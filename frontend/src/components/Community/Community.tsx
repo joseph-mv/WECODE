@@ -233,7 +233,7 @@ const dispatch=useDispatch()
             onSubmit={handleSendMessage}
             className=" p-4 border-t border-gray-200"
           >
-            <div className="flex space-x-4 bg-red-100">
+            <div className="flex space-x-4 ">
               <input
                 type="text"
                 value={newMessage}
