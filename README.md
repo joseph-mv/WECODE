@@ -109,36 +109,38 @@ VITE_BASE_URL=http://localhost:3000
 
 ### Running the application
 
-1.**Start the frontend server :**
-- Open a new terminal, navigate to the frontend directory, and run
+1. **Start the frontend server :**
+   - Open a new terminal, navigate to the frontend directory, and run
 
- ```bash
+    ```bash
    npm run dev
-
-```
+   npm install -g serve
+   serve -s dist
+   ```
 This command starts a local development server. By default, it runs on http://localhost:5173, where you can view the application in your browser. Any changes you make to the code will automatically refresh the page.
-2.**Build the frontend project for production:**
 
- ```bash
+2. **Build the frontend project for production:**
+
+    ```bash
    npm run build
 
-```
+   ```
 This command generates an optimised production build in the dist folder. The build is minified and includes all necessary assets for deployment.
 
-3.**Start the backend  server :**
-- Open a terminal and navigate to the backend directory, then run:
+3. **Start the backend  server :**
+   - Open a terminal and navigate to the backend directory, then run:
 
 
- ```bash
+    ```bash
    npm run dev
 
-```
+   ```
 
-4.**Build the backend project for production:**
+4.  **Build the backend project for production:**
 
  ```bash
    npm run build
-
+   npm run serve
 ```
 
 ## Deployment
