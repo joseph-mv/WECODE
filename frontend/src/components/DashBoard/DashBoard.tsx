@@ -1,18 +1,22 @@
-import  { useEffect, useState } from "react";
+import  { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../api/axiosInstance";
+import {  useAppDispatch, useAppSelector } from "../../redux/store";
+import { clearUser, setUser } from "../../redux/reducers/userReducer";
 
 const Dashboard = () => {
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const dispatch=useAppDispatch()
+  const user=useAppSelector((store)=>store.user.user)
   useEffect(() => {
     // Fetch user data from the backend
     axiosInstance
       .get("/user/dashboard", { withCredentials: true })
       .then((response) => {
-        // console.log(response);
-        setUser(response.data.name);
+        
+        dispatch(setUser(response.data))
+        
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -21,14 +25,17 @@ const Dashboard = () => {
   }, [navigate]);
 
   const handleLogout = () => {
+    dispatch(clearUser())
     axiosInstance
       .get("/user/logout", { withCredentials: true })
       .then(() => {
+        
         navigate("/"); // Redirect to login after logout
       })
       .catch((error) => {
         console.error("Error logging out:", error);
       });
+      
   };
 
   return (
@@ -36,7 +43,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       {user ? (
         <div>
-          <p>Welcome, {user}</p>
+          <p>Welcome, {user?.name}</p>
           <button className="bg-red-300 m-2 p-2 rounded"
             onClick={handleLogout}
           >

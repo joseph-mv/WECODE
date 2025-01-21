@@ -40,26 +40,51 @@ app.use(passport.session());
 app.use(express.json());
 app.use(cors());
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL, // Your React frontend URL
-    credentials: true, // Allow cookies to be sent
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL, // Your React frontend URL
+//     credentials: true, // Allow cookies to be sent
+//   })
+// );
+
+const allowedOrigins = [
+  process.env.CLIENT_URL
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    console.log('Request Origin:', origin); // Log the origin
+    if (typeof origin === 'undefined' || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
 // Use Helmet for security
 app.use(helmet());
 app.use(logger);
 
 // Initiate Google Authentication
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: [
+  'profile',
+  'email'
+]
+ }));
 
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req: Request, res: Response) => {
-    // Redirect user after successful login
-    res.redirect(process.env.CLIENT_URL+`/dashboard?user=${JSON.stringify(req.user)}`);
-  }
+    req.session.save((err) => { // ✅ Force saving the session
+      if (err) {
+        console.error("Session Save Error:", err);
+      }
+      console.log("Session Saved:", req.session);
+      res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+    });}
 );
 
 app.use('/user',userRouter );

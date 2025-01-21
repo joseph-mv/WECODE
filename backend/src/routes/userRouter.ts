@@ -4,7 +4,7 @@ import { googleAuthenticated } from '../middleware/isAuthenticated';
 const router = express.Router();
 
 router.get('/dashboard', googleAuthenticated, (req: Request, res: Response) => {
-  console.log(req.user)
+  console.log(req.session)
   res.send(req.user);
 });
 

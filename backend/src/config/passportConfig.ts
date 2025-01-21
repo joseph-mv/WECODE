@@ -29,6 +29,7 @@ passport.use(
       done: (error: any, user?: any) => void
     ) => {
       try {
+        
         // Check if the user exists in the database
         const existingUser = await userModel.findOne({ googleId: profile.id });
         if (existingUser) {

@@ -2,6 +2,7 @@ import { faHome,  faPeopleGroup, faPersonRunning } from "@fortawesome/free-solid
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/store";
 
 // interface User {
 //   firstName: string;
@@ -13,7 +14,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   // State to track whether the hamburger menu is open or closed
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+ const user=useAppSelector(store=>store.user.user)
   // Function to toggle the state of the menu (open/close)
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -48,7 +49,9 @@ const Header = () => {
           alt="logo"
         />
       </div>
-      <button className="md:hidden relative z-20 w-[30px]  h-[20px]">
+     
+      <div className="flex items-center gap-3">
+      <button className="order-1 md:hidden relative z-20 w-[30px]  h-[20px]">
         <label
           className="flex  label flex-col gap-1  w-[30px]  h-[20px] "
           htmlFor="burger"
@@ -65,7 +68,7 @@ const Header = () => {
           <span className="absolute top-[100%]  block h-[4px]  w-full origin-left transition-all bg-black peer-checked:-rotate-45 peer-checked:left-[4.5px] peer-checked:top-[21px]"></span>
         </label>
       </button>
-
+      
       <nav
         onMouseLeave={() => {
           setIsOpen(false);
@@ -101,7 +104,14 @@ const Header = () => {
           />
           <span>Career</span>
         </Link>
-      </nav>
+      </nav>  
+      <Link to='/dashboard' >
+      
+        <img className=" h-10 bg-black rounded-full " src={user.avatar} alt="" /> 
+      </Link>
+      </div>
+     
+      
     </header>
   );
 };
