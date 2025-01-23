@@ -3,7 +3,7 @@ import { DashboardStats } from "../components/DashboardStats";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import Members from "../components/Members";
-import ChatRooms from "../components/ChatRooms";
+import ChatRooms from "../components/Community/ChatRooms";
 import Events from "../components/Events";
 import MemberShipPlan from "../components/MemberShipPlan";
 import Analytics from "../components/Analytics";
@@ -20,7 +20,7 @@ const components: Record<string, JSX.Element> = {
 };
 
 function AdminDashBoard() {
-  const [menuItem, setMenuItem] = useState("Dashboard"); 
+  const [menuItem, setMenuItem] = useState("Chat Rooms"); 
   // Memoize the selected component to avoid unnecessary re-renders
   const SelectedComponent = useMemo(() => components[menuItem] || <DashboardStats />, [menuItem]);
 

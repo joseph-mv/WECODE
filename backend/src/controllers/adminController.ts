@@ -1,3 +1,4 @@
+
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -45,7 +46,7 @@ export const adminLogin = async (req: Request, res: Response) => {
 
 export const createChatRoom = async (req: Request, res: Response) => {
   try {
-    const { name, description } = req.body;
+    const { name, description, icon } = req.body
 
     // Generate a collection name dynamically
     const collectionName = `messages_${name
@@ -54,15 +55,25 @@ export const createChatRoom = async (req: Request, res: Response) => {
 
     // Check if chat room already exists
     const existingChat = await chatRoomModel.findOne({ name });
-    if (existingChat)
-      return res.status(400).json({ message: "Chat room already exists" });
+    if (existingChat) {
+      res.status(400).json({ message: "Chat room already exists" });
+    } else {
+      // Create a new chat room
+      const chatRoom = new chatRoomModel({ name, description,icon, collectionName });
+      await chatRoom.save();
 
-    // Create a new chat room
-    const chatRoom = new chatRoomModel({ name, description, collectionName });
-    await chatRoom.save();
-
-    res.status(201).json(chatRoom);
+      res.status(201).json(chatRoom);
+    }
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
 };
+
+export const getChatRooms=async (req:Request,res:Response)=>{
+  try{
+    const chatRooms=await chatRoomModel.find()
+    res.json(chatRooms)
+  }catch(error){
+    res.status(500).json({message:"Server error",error})
+  }
+}
