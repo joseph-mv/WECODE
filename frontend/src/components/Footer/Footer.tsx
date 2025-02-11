@@ -30,7 +30,7 @@ const Footer = () => {
       </nav>
       <div className="mt-4 sm:mt-0 flex flex-nowrap space-x-4">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/wecodemalayalam/"
           target="_blank"
           className="text-secondaryClr hover:text-primaryClr text-2xl"
         >

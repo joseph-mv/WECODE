@@ -38,7 +38,7 @@ export const Hero = () => {
       </div>
       <div className="absolute bottom-10 left-[50%] -translate-x-[50%] mx-auto   space-x-[10vw] mt-4  flex   ">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/wecodemalayalam/"
           target="_blank"
           className="text-gray-900   text-center animate-zoomInOut  hover:text-gray-800 hover:animate-none hover:scale-125 text-2xl"
         >
